@@ -1,0 +1,77 @@
+// Font
+$mainFont                : 'Montserrat', Helvetica, Arial, sans-serif;
+
+// Size
+$mainFontColor           : #101010;
+$mainFontSize            : 18px;
+$mainFontWeight          : 400;
+$mainLineHeight          : 1.4;
+
+$desktopWidth            : 1280px;
+$smDesktopWidth          : 1024px;
+$tableWidth              : 768px;
+$smTableWidth            : 640px;
+$phoneWidth              : 480px;
+$smPhoneWidth            : 320px;
+
+// Fonts
+@mixin font($font_name, $file_name, $weight, $style) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src: url("../fonts/#{$file_name}.woff2") format("woff2");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+
+// px to rem
+@function rem($pixels, $context: $mainFontSize) {
+	@if (unitless($pixels)) {
+		$pixels: $pixels * 1px;
+	}
+	@if (unitless($context)) {
+		$context: $context * 1px;
+	}
+	@return $pixels / $context * 1rem;
+}
+
+@mixin placeholder {
+	::-webkit-input-placeholder {
+		@content;
+	}
+	:-moz-placeholder {
+		@content;
+	}
+	::-moz-placeholder {
+		@content;
+	}
+	:-ms-input-placeholder {
+		@content;
+	}
+}
+
+@mixin firasans-regular{
+	font-family: 'FiraSans';
+	font-weight: 400;
+}
+
+@mixin firasans-extrabold{
+	font-family: 'FiraSans';
+	font-weight: 800;
+}
+
+@mixin firasans-medium{
+	font-family: 'FiraSans';
+	font-weight: 500;
+}
+
+@mixin firasans-light{
+	font-family: 'FiraSans';
+	font-weight: 300;
+}
+
+@mixin firasans-thin{
+	font-family: 'FiraSans';
+	font-weight: 200;
+}
